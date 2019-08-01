@@ -17,7 +17,7 @@ namespace Typewriter.Tests.CodeModel
 
         private File GetFile(PartialRenderingMode partialRenderingMode)
         {
-            var settings = new SettingsImpl(null) { PartialRenderingMode = partialRenderingMode };
+            var settings = new SettingsImpl() { PartialRenderingMode = partialRenderingMode };
             return GetFile(@"Tests\CodeModel\Support\PartialClassInfo.cs", settings);
         }
 

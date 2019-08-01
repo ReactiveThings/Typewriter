@@ -1,248 +1,46 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\xunit.runner.visualstudio.2.0.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\..\packages\xunit.runner.visualstudio.2.0.0\build\net20\xunit.runner.visualstudio.props')" />
-  <Import Project="..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props" Condition="Exists('..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F583276A-51A1-4DDD-B225-11A5F9A01217}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Typewriter.Tests</RootNamespace>
-    <AssemblyName>Typewriter.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyTitle>Typewriter.Tests</AssemblyTitle>
+    <Company>frhagn</Company>
+    <Product>Typewriter</Product>
+    <Description>Roslyn implementation of the Typewriter metadata model</Description>
+    <Copyright>Copyright © 2017</Copyright>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectGuid>{6A183330-C257-47F2-BDD3-F27795D54EE7}</ProjectGuid>
+    <Version>1.0.18</Version>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="envdte100, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="envdte80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="envdte90, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.CSharp.1.0.0\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.CSharp.Workspaces.1.0.0\lib\net45\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.VisualBasic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.VisualBasic.1.0.0\lib\net45\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.VisualBasic.Workspaces.1.0.0\lib\net45\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.Workspaces.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeAnalysis.Workspaces.Desktop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.CodeAnalysis.Workspaces.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.Workspaces.Desktop.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NSubstitute, Version=1.9.1.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\NSubstitute.1.9.1.0\lib\net45\NSubstitute.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Should.1.1.20\lib\Should.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Collections.Immutable, Version=1.1.36.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Collections.Immutable.1.1.36\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Composition.AttributedModel, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.AttributedModel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Composition.Convention, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Convention.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Composition.Hosting, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Hosting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Composition.Runtime, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.Runtime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Composition.TypedParts, Version=1.0.27.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.Composition.1.0.27\lib\portable-net45+win8+wp8+wpa81\System.Composition.TypedParts.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="System.Reflection.Metadata, Version=1.0.21.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Reflection.Metadata.1.0.21\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.assert, Version=2.0.0.2929, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.assert.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.assert.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="xunit.core, Version=2.0.0.2929, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.extensibility.core.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <ProjectReference Include="..\..\Typewriter.CLI\Typewriter.CLI.csproj" />
+    <ProjectReference Include="..\CodeModel\Typewriter.CodeModel.csproj" />
+    <ProjectReference Include="..\Metadata\Typewriter.Metadata.csproj" />
+    <ProjectReference Include="..\Roslyn\Typewriter.Metadata.Roslyn.csproj" />
+    <ProjectReference Include="..\Typewriter\Typewriter.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Typewriter\Properties\SharedAssemblyInfo.cs">
-      <Link>Properties\SharedAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="CodeModel\AttributeArgumentTests.cs" />
-    <Compile Include="CodeModel\AttributeTests.cs" />
-    <Compile Include="CodeModel\PartialClassTests.cs" />
-    <Compile Include="CodeModel\ConstantTests.cs" />
-    <Compile Include="CodeModel\EnumTests.cs" />
-    <Compile Include="CodeModel\DelegateTests.cs" />
-    <Compile Include="CodeModel\MethodTests.cs" />
-    <Compile Include="CodeModel\EventTests.cs" />
-    <Compile Include="CodeModel\PropertyTests.cs" />
-    <Compile Include="CodeModel\InterfaceTests.cs" />
-    <Compile Include="CodeModel\ClassTests.cs" />
-    <Compile Include="CodeModel\Support\ConstantInfo.cs" />
-    <Compile Include="CodeModel\Support\DelegateInfo.cs" />
-    <Compile Include="CodeModel\Support\MethodInfo.cs" />
-    <Compile Include="CodeModel\Support\EventInfo.cs" />
-    <Compile Include="CodeModel\Support\PartialClassInfo2.cs" />
-    <Compile Include="CodeModel\Support\PartialClassInfo.cs" />
-    <Compile Include="CodeModel\Support\TypeInfo.cs" />
-    <Compile Include="CodeModel\Support\PropertyInfo.cs" />
-    <Compile Include="CodeModel\Support\IInterfaceInfo.cs" />
-    <Compile Include="CodeModel\Support\ClassInfo.cs" />
-    <Compile Include="CodeModel\Support\EnumInfo.cs" />
-    <Compile Include="CodeModel\Support\FileInfo.cs" />
-    <Compile Include="CodeModel\Support\AttributeInfo.cs" />
-    <Compile Include="CodeModel\FileTests.cs" />
-    <Compile Include="CodeModel\TypeTests.cs" />
-    <Compile Include="Extensions\Support\HttpMethodController.cs" />
-    <Compile Include="Extensions\Support\BaseController.cs" />
-    <Compile Include="Extensions\Support\InheritedController.cs" />
-    <Compile Include="Extensions\Support\RouteControllerWithDefaultRoute.cs" />
-    <Compile Include="Extensions\Support\RouteController.cs" />
-    <Compile Include="Extensions\Support\RouteLessController.cs" />
-    <Compile Include="Extensions\WebApiRouteTestsClassRoute.cs" />
-    <Compile Include="Extensions\WebApiRouteTests.cs" />
-    <Compile Include="Extensions\WebApiTests.cs" />
-    <Compile Include="Helpers\CamelCaseTests.cs" />
-    <Compile Include="Support\AcceptVerbsAttribute.cs" />
-    <Compile Include="TestInfrastructure\CodeDomFixture.cs" />
-    <Compile Include="TestInfrastructure\RoslynFixture.cs" />
-    <Compile Include="TestInfrastructure\Dte.cs" />
-    <Compile Include="TestInfrastructure\ITestFixture.cs" />
-    <Compile Include="TestInfrastructure\MessageFilter.cs" />
-    <Compile Include="Render\RenderTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Support\FromBodyAttribute.cs" />
-    <Compile Include="Render\RoutedApiController\Support\Book.cs" />
-    <Compile Include="Support\RouteAttribute.cs" />
-    <Compile Include="Support\RoutePrefixAttribute.cs" />
-    <Compile Include="Render\RoutedApiController\BooksController.cs" />
-    <Compile Include="Render\WebApiController\Support\ComplexClassModel.cs" />
-    <Compile Include="Support\HttpDeleteAttribute.cs" />
-    <Compile Include="Support\HttpGetAttribute.cs" />
-    <Compile Include="Support\HttpPostAttribute.cs" />
-    <Compile Include="Support\HttpPutAttribute.cs" />
-    <Compile Include="Support\IHttpActionResult.cs" />
-    <Compile Include="Render\WebApiController\WebApiController.cs" />
-    <Compile Include="TestInfrastructure\TestBase.cs" />
-    <Compile Include="TestInfrastructure\RoslynMetadataProviderStub.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="Render\RoutedApiController\BooksController.result" />
-    <None Include="Render\RoutedApiController\BooksController.tstemplate" />
-    <None Include="Render\WebApiController\WebApiController.result" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="2.9.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.9.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Features" Version="2.9.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.Features" Version="2.9.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces" Version="2.9.0" />
+    <PackageReference Include="Should-DotNetStandard" Version="1.0.0" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.assert" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CodeDom\Typewriter.Metadata.CodeDom.csproj">
-      <Project>{c822d1a9-4c43-4067-a01e-ea38f3138282}</Project>
-      <Name>Typewriter.Metadata.CodeDom</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CodeModel\Typewriter.CodeModel.csproj">
-      <Project>{4ec6c920-d234-49f1-b17b-98a4de24ff87}</Project>
-      <Name>Typewriter.CodeModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Metadata\Typewriter.Metadata.csproj">
-      <Project>{511e50cc-6073-43ee-9e8b-dd6f584c81a8}</Project>
-      <Name>Typewriter.Metadata</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Roslyn\Typewriter.Metadata.Roslyn.csproj">
-      <Project>{3d74f5ff-ad4c-40a5-9577-5ed378031ff6}</Project>
-      <Name>Typewriter.Metadata.Roslyn</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Typewriter\Typewriter.csproj">
-      <Project>{0427c151-9b9d-4c77-8a64-68bf2c929595}</Project>
-      <Name>Typewriter</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Render\WebApiController\WebApiController.tstemplate" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props'))" />
-    <Error Condition="!Exists('..\..\packages\xunit.runner.visualstudio.2.0.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xunit.runner.visualstudio.2.0.0\build\net20\xunit.runner.visualstudio.props'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

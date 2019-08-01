@@ -15,7 +15,7 @@ using Microsoft.CodeAnalysis.Recommendations;
 using Microsoft.CodeAnalysis.Text;
 using Microsoft.CSharp.RuntimeBinder;
 using Typewriter.CodeModel;
-using Typewriter.VisualStudio;
+//using Typewriter.VisualStudio;
 using File = System.IO.File;
 
 namespace Typewriter.TemplateEditor.Lexing.Roslyn
@@ -47,6 +47,16 @@ namespace Typewriter.TemplateEditor.Lexing.Roslyn
 
             var projectId = ProjectId.CreateNewId();
             defaultMetadataReferences = defaultReferences.Select(CreateReference).ToList();
+
+            var asm = Assembly.Load("netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51");
+            defaultMetadataReferences.Add(CreateReference(asm));
+
+            asm = Assembly.Load("System.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+            defaultMetadataReferences.Add(CreateReference(asm));
+
+            asm = Assembly.Load("System.Collections, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
+            defaultMetadataReferences.Add(CreateReference(asm));
+
             var projectInfo = ProjectInfo.Create(projectId, new VersionStamp(), name, name + ".dll", LanguageNames.CSharp, metadataReferences: defaultMetadataReferences, compilationOptions: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
             OnProjectAdded(projectInfo);
@@ -84,7 +94,7 @@ namespace Typewriter.TemplateEditor.Lexing.Roslyn
             var document = CurrentSolution.GetDocument(documentId);
             var semanticModel = document.GetSemanticModelAsync().Result;
 
-            return Recommender.GetRecommendedSymbolsAtPosition(semanticModel, position, this).ToArray();
+            return Recommender.GetRecommendedSymbolsAtPositionAsync(semanticModel, position, this).Result.ToArray();
         }
 
         public IReadOnlyList<Diagnostic> GetDiagnostics(DocumentId documentId, int start, int length)

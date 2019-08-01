@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.Text;
+//using Microsoft.VisualStudio.Text;
 
 namespace Typewriter.TemplateEditor.Lexing
 {
@@ -66,9 +66,9 @@ namespace Typewriter.TemplateEditor.Lexing
             return tokenDictionary.Values.Where(t => t.Start <= position && t.Start + t.Length >= position);
         }
 
-        public IEnumerable<Token> GetTokens(Span span)
-        {
-            return tokenDictionary.Where(t => t.Key >= span.Start && t.Key <= span.End).Select(t => t.Value);
-        }
+        //public IEnumerable<Token> GetTokens(Span span)
+        //{
+        //    return tokenDictionary.Where(t => t.Key >= span.Start && t.Key <= span.End).Select(t => t.Value);
+        //}
     }
 }

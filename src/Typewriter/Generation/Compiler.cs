@@ -2,16 +2,16 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using EnvDTE;
+//using EnvDTE;
 using Microsoft.CodeAnalysis;
 using Typewriter.TemplateEditor.Lexing.Roslyn;
-using Typewriter.VisualStudio;
+//using Typewriter.VisualStudio;
 
 namespace Typewriter.Generation
 {
     internal static class Compiler
     {
-        public static Type Compile(ProjectItem projectItem, ShadowClass shadowClass)
+        public static Type Compile(ShadowClass shadowClass)
         {
             if (Directory.Exists(Constants.TempDirectory) == false)
             {
@@ -40,11 +40,11 @@ namespace Typewriter.Generation
 
             var result = shadowClass.Compile(path);
 
-            ErrorList.Clear();
+            //ErrorList.Clear();
 
             var errors = result.Diagnostics.Where(diagnostic => diagnostic.Severity == DiagnosticSeverity.Error || diagnostic.Severity == DiagnosticSeverity.Warning);
 
-            var hasErrors = false;
+            //var hasErrors = false;
 
             foreach (var error in errors)
             {
@@ -58,18 +58,15 @@ namespace Typewriter.Generation
 
                 if (error.Severity == DiagnosticSeverity.Error || error.IsWarningAsError)
                 {
-                    ErrorList.AddError(projectItem, message);
-                    hasErrors = true;
+                    Log.Error(message);
                 }
                 else
                 {
-                    ErrorList.AddWarning(projectItem, message);
+                    Log.Warn(message);
                 }
             }
-
-            if (hasErrors)
-                ErrorList.Show();
-
+            //if (hasErrors)
+            //    ErrorList.Show();
             if (result.Success)
             {
                 var assembly = Assembly.LoadFrom(path);

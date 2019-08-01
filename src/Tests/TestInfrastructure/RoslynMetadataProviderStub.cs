@@ -1,11 +1,11 @@
 ﻿using System.Linq;
-using EnvDTE;
-using Microsoft.CodeAnalysis.MSBuild;
 using Typewriter.Metadata.Interfaces;
 using Typewriter.Metadata.Providers;
 using Typewriter.Metadata.Roslyn;
 using Typewriter.Configuration;
 using System;
+using Typewriter.CLI;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Typewriter.Tests.TestInfrastructure
 {
@@ -13,15 +13,9 @@ namespace Typewriter.Tests.TestInfrastructure
     {
         private readonly Microsoft.CodeAnalysis.Workspace workspace;
 
-        public RoslynMetadataProviderStub(DTE dte)
+        public RoslynMetadataProviderStub(Microsoft.CodeAnalysis.Solution dte)
         {
-            var solutionPath = dte.Solution.FullName;
-            var msBuildWorkspace = MSBuildWorkspace.Create();
-
-            // ReSharper disable once UnusedVariable
-            var solution = msBuildWorkspace.OpenSolutionAsync(solutionPath).Result;
-
-            this.workspace = msBuildWorkspace;
+            workspace = dte.Workspace;
         }
 
         public IFileMetadata GetFile(string path, Settings settings, Action<string[]> requestRender)

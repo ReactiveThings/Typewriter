@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Buildalyzer" Version="2.3.0" />
+    <PackageReference Include="Buildalyzer.Workspaces" Version="2.3.0" />
+    <PackageReference Include="CommandLineParser" Version="2.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\src\CodeModel\Typewriter.CodeModel.csproj" />
+    <ProjectReference Include="..\src\Metadata\Typewriter.Metadata.csproj" />
+    <ProjectReference Include="..\src\Roslyn\Typewriter.Metadata.Roslyn.csproj" />
+    <ProjectReference Include="..\src\Typewriter\Typewriter.csproj" />
+  </ItemGroup>
+
+</Project>

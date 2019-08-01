@@ -6,13 +6,6 @@ using Xunit;
 
 namespace Typewriter.Tests.CodeModel
 {
-    [Trait("CodeModel", "Delegates"), Collection(nameof(CodeDomFixture))]
-    public class CodeDomDelegateTests : DelegateTests
-    {
-        public CodeDomDelegateTests(CodeDomFixture fixture) : base(fixture)
-        {
-        }
-    }
 
     [Trait("CodeModel", "Delegates"), Collection(nameof(RoslynFixture))]
     public class RoslynDelegateTests : DelegateTests

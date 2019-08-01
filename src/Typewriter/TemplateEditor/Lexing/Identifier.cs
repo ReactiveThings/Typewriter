@@ -6,8 +6,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Microsoft.CodeAnalysis;
-using Microsoft.VisualStudio.Language.Intellisense;
+//using Microsoft.VisualStudio.Language.Intellisense;
 using Typewriter.TemplateEditor.Lexing.Roslyn;
+using XmlDocumentationProvider = Typewriter.TemplateEditor.Lexing.Roslyn.XmlDocumentationProvider;
 
 namespace Typewriter.TemplateEditor.Lexing
 {
@@ -22,7 +23,7 @@ namespace Typewriter.TemplateEditor.Lexing
         public bool IsParent { get; set; }
         public bool RequireTemplate { get; set; }
         public bool IsCustom { get; set; }
-        public StandardGlyphGroup Glyph { get; set; } = StandardGlyphGroup.GlyphGroupProperty;
+        //public StandardGlyphGroup Glyph { get; set; } = StandardGlyphGroup.GlyphGroupProperty;
 
         public static Identifier FromSymbol(ISymbol symbol)
         {
@@ -30,7 +31,7 @@ namespace Typewriter.TemplateEditor.Lexing
             {
                 Name = symbol.Name,
                 QuickInfo = GetSummary(symbol),
-                Glyph = symbol.Kind == SymbolKind.Method ? StandardGlyphGroup.GlyphGroupMethod : StandardGlyphGroup.GlyphGroupProperty
+                //Glyph = symbol.Kind == SymbolKind.Method ? StandardGlyphGroup.GlyphGroupMethod : StandardGlyphGroup.GlyphGroupProperty
             };
         }
 

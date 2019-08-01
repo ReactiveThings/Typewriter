@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
-using EnvDTE;
-using Typewriter.Generation.Controllers;
+//using EnvDTE;
+//using Typewriter.Generation.Controllers;
 using Typewriter.TemplateEditor.Lexing;
 using Typewriter.TemplateEditor.Lexing.Roslyn;
-using Typewriter.VisualStudio;
+
+//using Typewriter.VisualStudio;
 using Stream = Typewriter.TemplateEditor.Lexing.Stream;
 
 namespace Typewriter.Generation
@@ -18,7 +19,7 @@ namespace Typewriter.Generation
     {
         private static int counter;
 
-        public static string Parse(ProjectItem templateProjectItem, string template, List<Type> extensions)
+        public static string Parse(TemplateInfo templateProjectItem, string template, List<Type> extensions)
         {
             if (string.IsNullOrWhiteSpace(template)) return null;
 
@@ -40,7 +41,7 @@ namespace Typewriter.Generation
             shadowClass.Parse();
 
             extensions.Clear();
-            extensions.Add(Compiler.Compile(templateProjectItem, shadowClass));
+            extensions.Add(Compiler.Compile(shadowClass));
             extensions.AddRange(FindExtensionClasses(shadowClass));
 
             return output;
@@ -58,8 +59,8 @@ namespace Typewriter.Generation
                 foreach (var assembly in shadowClass.ReferencedAssemblies)
                 {
                     types.AddRange(assembly.GetExportedTypes().Where(t => t.Namespace == ns &&
-                        t.GetMethods(BindingFlags.Static | BindingFlags.Public).Any(m => 
-                            m.IsDefined(typeof (ExtensionAttribute), false) && 
+                        t.GetMethods(BindingFlags.Static | BindingFlags.Public).Any(m =>
+                            m.IsDefined(typeof (ExtensionAttribute), false) &&
                             m.GetParameters().First().ParameterType.Namespace == "Typewriter.CodeModel")));
                 }
             }
@@ -176,7 +177,7 @@ namespace Typewriter.Generation
             return false;
         }
 
-        private static bool ParseReference(Stream stream, ShadowClass shadowClass, ProjectItem templateProjectItem)
+        private static bool ParseReference(Stream stream, ShadowClass shadowClass, TemplateInfo templateProjectItem)
         {
             const string keyword = "reference";
 

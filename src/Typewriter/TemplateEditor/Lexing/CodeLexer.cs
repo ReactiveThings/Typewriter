@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using EnvDTE;
-using Typewriter.Generation.Controllers;
-using Typewriter.VisualStudio;
+using Typewriter.Generation;
+//using EnvDTE;
+//using Typewriter.Generation.Controllers;
+//using Typewriter.VisualStudio;
 using File = Typewriter.CodeModel.File;
+using SemanticModel = TypewriterTemplateEditor.Lexing.SemanticModel;
 
 namespace Typewriter.TemplateEditor.Lexing
 {
@@ -17,15 +20,15 @@ namespace Typewriter.TemplateEditor.Lexing
 
         private SemanticModel semanticModel;
         private Stack<Context> context;
-        private ProjectItem templateProjectItem;
+        private TemplateInfo templateProjectItem;
 
         public CodeLexer(Contexts contexts)
         {
             this.contexts = contexts;
-            this.fileContext = contexts.Find(nameof(File));
+            fileContext = contexts.Find(nameof(File));
         }
 
-        public void Tokenize(SemanticModel semanticModel, string code, ProjectItem templateProjectItem)
+        public void Tokenize(SemanticModel semanticModel, string code, TemplateInfo templateProjectItem)
         {
             this.semanticModel = semanticModel;
             this.templateProjectItem = templateProjectItem;

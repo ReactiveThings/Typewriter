@@ -6,13 +6,6 @@ using Xunit;
 
 namespace Typewriter.Tests.CodeModel
 {
-    [Trait("CodeModel", "Enums"), Collection(nameof(CodeDomFixture))]
-    public class CodeDomEnumTests : EnumTests
-    {
-        public CodeDomEnumTests(CodeDomFixture fixture) : base(fixture)
-        {
-        }
-    }
 
     [Trait("CodeModel", "Enums"), Collection(nameof(RoslynFixture))]
     public class RoslynEnumTests : EnumTests

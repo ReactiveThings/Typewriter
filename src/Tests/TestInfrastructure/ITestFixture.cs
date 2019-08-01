@@ -1,12 +1,13 @@
-﻿using System;
-using EnvDTE;
+﻿using Microsoft.CodeAnalysis;
+using System;
 using Typewriter.Metadata.Providers;
 
 namespace Typewriter.Tests.TestInfrastructure
 {
     public interface ITestFixture : IDisposable
     {
-        DTE Dte { get; }
+        string SolutionPath { get; set; }
+        Solution Dte { get; }
         IMetadataProvider Provider { get; }
     }
 }

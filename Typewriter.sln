@@ -1,24 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.25928.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter.ItemTemplates", "src\ItemTemplates\Typewriter.ItemTemplates.csproj", "{417568AF-7B73-4C93-9261-025D69AC89A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typewriter.CodeModel", "src\CodeModel\Typewriter.CodeModel.csproj", "{4EC6C920-D234-49F1-B17B-98A4DE24FF87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter", "src\Typewriter\Typewriter.csproj", "{0427C151-9B9D-4C77-8A64-68BF2C929595}"
-	ProjectSection(ProjectDependencies) = postProject
-		{3D74F5FF-AD4C-40A5-9577-5ED378031FF6} = {3D74F5FF-AD4C-40A5-9577-5ED378031FF6}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typewriter.Metadata", "src\Metadata\Typewriter.Metadata.csproj", "{511E50CC-6073-43EE-9E8B-DD6F584C81A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter.Tests", "src\Tests\Typewriter.Tests.csproj", "{F583276A-51A1-4DDD-B225-11A5F9A01217}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typewriter.Metadata.Roslyn", "src\Roslyn\Typewriter.Metadata.Roslyn.csproj", "{3D74F5FF-AD4C-40A5-9577-5ED378031FF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter.CodeModel", "src\CodeModel\Typewriter.CodeModel.csproj", "{4EC6C920-D234-49F1-B17B-98A4DE24FF87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typewriter.CLI", "Typewriter.CLI\Typewriter.CLI.csproj", "{6435CD40-DD7F-4335-B40D-CB0D20B3D3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter.Metadata.CodeDom", "src\CodeDom\Typewriter.Metadata.CodeDom.csproj", "{C822D1A9-4C43-4067-A01E-EA38F3138282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typewriter", "src\Typewriter\Typewriter.csproj", "{9F23E73E-8017-4AA7-AEBA-6413A59FE414}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter.Metadata", "src\Metadata\Typewriter.Metadata.csproj", "{511E50CC-6073-43EE-9E8B-DD6F584C81A8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typewriter.Metadata.Roslyn", "src\Roslyn\Typewriter.Metadata.Roslyn.csproj", "{3D74F5FF-AD4C-40A5-9577-5ED378031FF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typewriter.Tests", "src\Tests\Typewriter.Tests.csproj", "{6A183330-C257-47F2-BDD3-F27795D54EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,26 +21,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{417568AF-7B73-4C93-9261-025D69AC89A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{417568AF-7B73-4C93-9261-025D69AC89A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{417568AF-7B73-4C93-9261-025D69AC89A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{417568AF-7B73-4C93-9261-025D69AC89A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0427C151-9B9D-4C77-8A64-68BF2C929595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0427C151-9B9D-4C77-8A64-68BF2C929595}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0427C151-9B9D-4C77-8A64-68BF2C929595}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0427C151-9B9D-4C77-8A64-68BF2C929595}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F583276A-51A1-4DDD-B225-11A5F9A01217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F583276A-51A1-4DDD-B225-11A5F9A01217}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F583276A-51A1-4DDD-B225-11A5F9A01217}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F583276A-51A1-4DDD-B225-11A5F9A01217}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EC6C920-D234-49F1-B17B-98A4DE24FF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EC6C920-D234-49F1-B17B-98A4DE24FF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EC6C920-D234-49F1-B17B-98A4DE24FF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EC6C920-D234-49F1-B17B-98A4DE24FF87}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C822D1A9-4C43-4067-A01E-EA38F3138282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C822D1A9-4C43-4067-A01E-EA38F3138282}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C822D1A9-4C43-4067-A01E-EA38F3138282}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C822D1A9-4C43-4067-A01E-EA38F3138282}.Release|Any CPU.Build.0 = Release|Any CPU
 		{511E50CC-6073-43EE-9E8B-DD6F584C81A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{511E50CC-6073-43EE-9E8B-DD6F584C81A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{511E50CC-6073-43EE-9E8B-DD6F584C81A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,8 +33,23 @@ Global
 		{3D74F5FF-AD4C-40A5-9577-5ED378031FF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D74F5FF-AD4C-40A5-9577-5ED378031FF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D74F5FF-AD4C-40A5-9577-5ED378031FF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6435CD40-DD7F-4335-B40D-CB0D20B3D3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6435CD40-DD7F-4335-B40D-CB0D20B3D3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6435CD40-DD7F-4335-B40D-CB0D20B3D3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6435CD40-DD7F-4335-B40D-CB0D20B3D3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F23E73E-8017-4AA7-AEBA-6413A59FE414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F23E73E-8017-4AA7-AEBA-6413A59FE414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F23E73E-8017-4AA7-AEBA-6413A59FE414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F23E73E-8017-4AA7-AEBA-6413A59FE414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A183330-C257-47F2-BDD3-F27795D54EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A183330-C257-47F2-BDD3-F27795D54EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A183330-C257-47F2-BDD3-F27795D54EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A183330-C257-47F2-BDD3-F27795D54EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A0267B2-5602-433D-979A-5AE259616665}
 	EndGlobalSection
 EndGlobal
