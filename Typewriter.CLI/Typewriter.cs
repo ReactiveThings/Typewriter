@@ -29,7 +29,7 @@ namespace Typewriter.CLI
 
             var solution = new Solution(solutionPath, buildOptions, loggerFactory);
             
-            IEnumerable<Project> projects = !String.IsNullOrWhiteSpace(projectPath) ? solution.GetProject(projectPath).Solution.Projects : null;
+            Project[] projects = !String.IsNullOrWhiteSpace(projectPath) ? solution.GetProject(projectPath).Solution.Projects.ToArray() : null;
             foreach (var templatePath in templatePaths)
             {
                 var templateInfo = new TemplateInfo {
@@ -55,7 +55,7 @@ namespace Typewriter.CLI
 
                 if (projects == null)
                 {
-                    projects = solution.GetProjects(includedProjects);
+                    projects = solution.GetProjects(includedProjects).ToArray();
                 }
 
                 RenderTemplateForAllProjects(template, projects.Where(p => includedProjects == null || includedProjects.Contains(p.Name)));

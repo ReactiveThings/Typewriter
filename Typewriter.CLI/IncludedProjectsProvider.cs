@@ -16,7 +16,7 @@ namespace Typewriter.CLI
         {
             this.logger = logger;
         }
-        public ICollection<string> GetIncludedProjects(SettingsImpl settings, string projectPath, IEnumerable<Project> projects)
+        public ICollection<string> GetIncludedProjects(SettingsImpl settings, string projectPath, Project[] projects)
         {
             var includedProjects = settings.IncludedProjects;
             if (projects == null)
@@ -67,9 +67,9 @@ namespace Typewriter.CLI
             return referencedProjects;
         }
 
-        private static Project GetCurrentProject(string projectPath, IEnumerable<Project> projects)
+        private static Project GetCurrentProject(string projectPath, Project[] projects)
         {
-            return projects.Where(p => p.FilePath.Equals(new FileInfo(projectPath).FullName, StringComparison.InvariantCultureIgnoreCase)).Single();
+            return projects.Single(p => p.FilePath.Equals(new FileInfo(projectPath).FullName, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
